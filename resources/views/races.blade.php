@@ -14,7 +14,7 @@
                     <div class="panel-body">
                         <table class="table table-striped race-table">
                             <thead>
-                                <th>RaceID</th>
+                                <th>Race Name</th>
                                 <th>Meeting</th>
                                 <th>Type</th>
                                 <th>Closing Time</th>
