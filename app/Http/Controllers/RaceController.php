@@ -19,12 +19,12 @@ class RaceController extends Controller
 
         // Assume we get all races data from API serve and save it in $races_json_str, and it has next 5 races 
         // which are sorted by 'close_time' and indexed from 0 to 4
-        // Because I think API server has already done close time sorting since it need to find 5 most recent races.
+        // Because I think API server has already done close time sorting since it needs to find 5 most recent races.
         $races_json_str = '{"0": {"close_time": "2018-03-06 12:00:00", "meeting_type": "Harness", "meeting": "Doomben", "id": 1000001, "race_name":"Doomben 1000"}, "1": {"close_time": "2018-03-06 12:15:00", "meeting_type": "Greyhound", "meeting": "Ascot", "id": 1000002, "race_name":"Ascot Cup"}, "2": {"close_time": "2018-03-06 12:30:00", "meeting_type": "Thoroughbred", "meeting": "Doomben", "id": 1000003, "race_name":"Doomben Cup"}, "3": {"close_time": "2018-03-06 12:45:00", "meeting_type": "Harness", "meeting": "Eagle Farm", "id": 1000004, "race_name":"Queensland Oaks"}, "4": {"close_time": "2018-03-06 13:00:00", "meeting_type": "Greyhound", "meeting": "Ascot", "id": 1000005, "race_name":"Queensland Derby"}}';       
 
         $races = json_decode($races_json_str, true);
 
-        // change closing time to test counting down and disappearing race
+        // change closing time to test counting down and disappearing from race list
         date_default_timezone_set("Australia/Brisbane");
         $races[0]['close_time'] = date("Y-m-d H:i:s", strtotime("+1 minutes"));
         $races[1]['close_time'] = date("Y-m-d H:i:s", strtotime("+3 minutes"));
@@ -69,7 +69,7 @@ class RaceController extends Controller
                 ),
             );
 
-            shuffle($all_races[$id]['competitors']);   // random the position of each competitor 
+            shuffle($all_races[$id]['competitors']);   // random the position for each competitor 
             return json_encode($all_races[$id]); 
         }
 
