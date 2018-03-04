@@ -11,7 +11,7 @@
                         Current Race List
                     </div>
 
-                    <div class="panel-body">
+                    <div class="panel-body table-responsive">
                         <table class="table table-striped race-table">
                             <thead>
                                 <th>Race Name</th>
