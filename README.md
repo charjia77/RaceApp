@@ -18,7 +18,7 @@ php artisan key:generate
 
 More Assumptions
 
-1. Add race names and display with meeting name at index page.
+1. Add race names and display with meeting names at index page.
 
 2. each race has a unique id which is used as the argument to get race details(e.g. Competitors).
 
