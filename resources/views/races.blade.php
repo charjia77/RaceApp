@@ -1,41 +1,29 @@
 @extends('layouts.app')
 
 @section('content')
-    <div class="container">
-        <div class="col-sm-offset-2 col-sm-8">
-
-            <!-- Current Races -->
-            @if (count($races) > 0)
-                <div class="panel panel-default">
-                    <div class="panel-heading" align="center">
-                        Current Race List
-                    </div>
-
-                    <div class="panel-body table-responsive">
-                        <table class="table table-striped race-table">
-                            <thead>
-                                <th>Race Name</th>
-                                <th>Meeting</th>
-                                <th>Type</th>
-                                <th>Closing Time</th>
-                            </thead>
-                            <tbody>
-                                @foreach ($races as $race)
-                                    <tr id="{{ 'tr'.$race['id'] }}" onclick="goRace({{ $race['id'] }})">
-                                        <!-- <td class="table-text"><div>{{ $race['id'] }}</div></td> -->
-                                        <td class="table-text"><div>{{ $race['race_name'] }}</div></td>
-                                        <td class="table-text"><div>{{ $race['meeting'] }}</div></td>
-                                        <td class="table-text"><div>{{ $race['meeting_type'] }}</div></td>
-                                        <td class="table-text" id="{{ 'td'.$race['id']}}"><div>{{ $race['close_time'] }}</div></td>
-
-                                    </tr>
-                                @endforeach
-                            </tbody>
-                        </table>
-                    </div>
-                </div>
-            @endif
-        </div>
+    <div id="page-wrap">
+        <div align="center">Race List</div>
+        <table class="table table-striped race-table">
+            <thead>
+                <tr>
+                    <th>Race Name</th>
+                    <th>Meeting</th>
+                    <th>Type</th>
+                    <th>Closing Time</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach ($races as $race)
+                    <tr id="{{ 'tr'.$race['id'] }}" onclick="goRace({{ $race['id'] }})">
+                        <!-- <td class="table-text"><div>{{ $race['id'] }}</div></td> -->
+                        <td class="table-text"><div>{{ $race['race_name'] }}</div></td>
+                        <td class="table-text"><div>{{ $race['meeting'] }}</div></td>
+                        <td class="table-text"><div>{{ $race['meeting_type'] }}</div></td>
+                        <td class="table-text" id="{{ 'td'.$race['id']}}"><div>{{ $race['close_time'] }}</div></td>
+                    </tr>
+                @endforeach
+            </tbody>
+        </table>
     </div>
 @endsection
 
